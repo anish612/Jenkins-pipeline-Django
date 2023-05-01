@@ -1,13 +1,11 @@
 pipeline {
     agent any
-    environment {
-        GITHUB_TOKEN = credentials('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')
-    }
+    
 
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/anish612/Jenkins-pipeline-Django.git']])
             }
         }
 
